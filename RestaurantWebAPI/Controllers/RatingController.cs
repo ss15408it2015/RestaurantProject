@@ -26,7 +26,12 @@ namespace RestaurantWebAPI.Controllers
 
 
 
-
+        /// <summary>
+        /// it returns single rating of restaurant By using restaurantID and ratingID.
+        /// </summary>
+        /// <param name="restaurantID"></param>
+        /// <param name="ratingID"></param>
+        /// <returns></returns>
         [HttpGet("{ratingID}", Name = "GetSingleRating")]
         public async Task<ActionResult<RatingDto>> GetSingleRating(int restaurantID, int ratingID)
         {
@@ -38,6 +43,11 @@ namespace RestaurantWebAPI.Controllers
                 return NotFound();
         }
 
+        /// <summary>
+        /// it returns list of all ratings of perticular restaurant By using restaurantID.
+        /// </summary>
+        /// <param name="restaurantID"></param>
+        /// <returns></returns>
         [HttpGet]
         public async Task<ActionResult<List<RatingDto>>> GetAllRatings(int restaurantID)
         {
@@ -48,7 +58,13 @@ namespace RestaurantWebAPI.Controllers
             else
                 return NotFound();
         }
-        
+
+        /// <summary>
+        /// it add single rating in perticular restaurant By using restaurantID and ratingData in RatingDto form.
+        /// </summary>
+        /// <param name="restaurantID"></param>
+        /// <param name="ratingDto"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<ActionResult> AddSingleRating(int restaurantID, RatingDto ratingDto)
         {
@@ -73,6 +89,13 @@ namespace RestaurantWebAPI.Controllers
                 return NotFound();
         }
 
+        /// <summary>
+        /// it updates single rating of restaurant By using restaurantID, ratingID and ratingData in RatingDto form.
+        /// </summary>
+        /// <param name="restaurantID"></param>
+        /// <param name="ratingID"></param>
+        /// <param name="ratingDto"></param>
+        /// <returns></returns>
         [HttpPut("{ratingID}")]
         public async Task<ActionResult> UpdateRating(int restaurantID, int ratingID, RatingDto ratingDto)
         {
@@ -98,6 +121,12 @@ namespace RestaurantWebAPI.Controllers
                     , ratingToReturn);
         }
 
+        /// <summary>
+        /// it removes single rating of restaurant By using restaurantID and ratingID.
+        /// </summary>
+        /// <param name="restaurantID"></param>
+        /// <param name="ratingID"></param>
+        /// <returns></returns>
         [HttpDelete("{ratingID}")]
         public async Task<ActionResult> RemoveSingleRating(int restaurantID, int ratingID)
         {

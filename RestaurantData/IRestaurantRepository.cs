@@ -17,6 +17,7 @@ namespace RestaurantData
 
         Task<bool> RestaurantExist(int restaurantID);
         Task<bool> CuisineTypeExist(int cuisineID);
+        Task<bool> RestaurantHasCuisineType(int restaurantID, int cuisineID);
 
 
         Task<Rating> GetSingleRating(int restaurantID, int ratingID);

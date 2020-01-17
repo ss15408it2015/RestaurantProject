@@ -11,7 +11,8 @@
   "profiles": {
     "IIS Express": {
       "commandName": "Project",
-      "launchUrl": "weatherforecast",
+      "launchBrowser": true,
+      "launchUrl": "",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
@@ -20,7 +21,7 @@
     "RestaurantWebAPI": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "weatherforecast",
+      "launchUrl": "",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },

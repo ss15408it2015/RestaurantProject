@@ -53,10 +53,27 @@ namespace RestaurantData
         }
 
 
+
+
         public async Task<bool> RestaurantExist(int restaurantID)
         {
             return await _context.Restaurants.AnyAsync(a => a.ID == restaurantID);
         }
+        public async Task<bool> CuisineTypeExist(int cuisineID)
+        {
+            return await _context.CuisineTypes.AnyAsync(a => a.ID == cuisineID);
+        }
+        public async Task<bool> RestaurantHasCuisineType(int restaurantID, int cuisineID)
+        {
+            return await _context.RestaurantCuisine
+                                    .AnyAsync(i => 
+                                    (
+                                        i.restaurantID == restaurantID
+                                        &&
+                                        i.cuisineTypeID == cuisineID
+                                    ));
+        }
+
 
 
         public async Task<Rating> GetSingleRating(int restaurantID, int ratingID)
@@ -86,6 +103,7 @@ namespace RestaurantData
             
             return newRating;
         }
+
 
 
         public async Task<CuisineType> GetSingleCuisineType(int cuisineTypeID)
@@ -120,11 +138,6 @@ namespace RestaurantData
         }
 
 
-        public async Task<bool> CuisineTypeExist(int cuisineID)
-        {
-            return await _context.CuisineTypes.AnyAsync(a => a.ID == cuisineID);
-        }
-
 
         public async Task<IEnumerable<CuisineType>> GetCuisineTypeOfRestaurant(int restaurantID)
         {
@@ -145,7 +158,6 @@ namespace RestaurantData
             
             if (resCuisine != null)
                 return resCuisine;
-
 
             resCuisineType.cuisineType = await _context.CuisineTypes.FindAsync(resCuisineType.cuisineTypeID);
             _context.RestaurantCuisine.Add(resCuisineType);

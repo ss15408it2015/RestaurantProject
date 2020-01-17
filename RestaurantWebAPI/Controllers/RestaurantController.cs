@@ -28,8 +28,12 @@ namespace RestaurantWebAPI.Controllers
 
 
 
-        [HttpGet()]
-        public async Task<ActionResult<List<RestaurantDto>>> GetALLRestaurants()
+        /// <summary>
+        /// it returns List of all restaurants details.
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public async Task<ActionResult<List<RestaurantDto>>> GetAllRestaurants()
         {
             var restaurantFromRepo = await _restaurantRepository.GetAllRestaurants();
             
@@ -39,6 +43,11 @@ namespace RestaurantWebAPI.Controllers
                 return NotFound();
         }
 
+        /// <summary>
+        /// it returns single restaurant details by using restaurantID as parameter.
+        /// </summary>
+        /// <param name="restaurantID"></param>
+        /// <returns></returns>
         [HttpGet("{restaurantID}", Name = "GetRestaurant")]
         public async Task<ActionResult<RestaurantDto>> GetRestaurantByID(int restaurantID)
         {
@@ -49,6 +58,11 @@ namespace RestaurantWebAPI.Controllers
                 return NotFound();
         }
 
+        /// <summary>
+        /// it add single restaurant details by using restaurant data in the form of RestaurantDto.
+        /// </summary>
+        /// <param name="restaurantDto"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<ActionResult<RestaurantDto>> AddRestaurant(RestaurantDto restaurantDto)
         {
@@ -63,6 +77,12 @@ namespace RestaurantWebAPI.Controllers
                 restaurantToReturn);
         }
 
+        /// <summary>
+        /// it update perticular restaurant details by using restaurantID and restaurant data in the form of RestaurantDto.
+        /// </summary>
+        /// <param name="restaurantID"></param>
+        /// <param name="resDto"></param>
+        /// <returns></returns>
         [HttpPut("{restaurantID}", Name = "Update")]
         public async Task<ActionResult<RestaurantDto>> UpdateRestaurant(int restaurantID, RestaurantDto resDto)
         {
@@ -80,27 +100,11 @@ namespace RestaurantWebAPI.Controllers
                 restaurantToReturn);
         }
 
-        [HttpPatch("{restaurantID}")]
-        public async Task<ActionResult<RestaurantDto>> PartialUpdateRestaurant(int restaurantID, JsonPatchDocument<RestaurantDto> restaurantPatchData)
-        {
-            var resToPatch = _mapper.Map<RestaurantDto>(_restaurantRepository.GetRestaurantByID(restaurantID));
-
-            if (restaurantPatchData == null || resToPatch == null)
-                return NotFound();
-
-            restaurantPatchData.ApplyTo(resToPatch);
-
-            var resEntity = _mapper.Map<Restaurant>(resToPatch);
-            resEntity.ID = restaurantID;
-            var resUpdatedEntity = _restaurantRepository.UpdateRestaurant(resEntity);
-            var restaurantToReturn = _mapper.Map<RestaurantDto>(resUpdatedEntity);
-            await _restaurantRepository.SaveAsync();
-
-            return CreatedAtRoute("GetRestaurant",
-                new { restaurantID = restaurantToReturn.ID },
-                restaurantToReturn);
-        }
-
+        /// <summary>
+        /// it remove perticular restaurant details by using restaurantID.
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
         public async Task<IActionResult> RemoveRestaurant(int ID)
         {
@@ -110,5 +114,29 @@ namespace RestaurantWebAPI.Controllers
             else
                 return NotFound();
         }
+
+
+
+        //[HttpPatch("{restaurantID}")]
+        //public async Task<ActionResult<RestaurantDto>> PartialUpdateRestaurant(int restaurantID, JsonPatchDocument<RestaurantDto> restaurantPatchData)
+        //{
+        //    var resToPatch = _mapper.Map<RestaurantDto>(_restaurantRepository.GetRestaurantByID(restaurantID));
+
+        //    if (restaurantPatchData == null || resToPatch == null)
+        //        return NotFound();
+
+        //    restaurantPatchData.ApplyTo(resToPatch);
+
+        //    var resEntity = _mapper.Map<Restaurant>(resToPatch);
+        //    resEntity.ID = restaurantID;
+        //    var resUpdatedEntity = _restaurantRepository.UpdateRestaurant(resEntity);
+        //    var restaurantToReturn = _mapper.Map<RestaurantDto>(resUpdatedEntity);
+        //    await _restaurantRepository.SaveAsync();
+
+        //    return CreatedAtRoute("GetRestaurant",
+        //        new { restaurantID = restaurantToReturn.ID },
+        //        restaurantToReturn);
+        //}
+
     }
 }

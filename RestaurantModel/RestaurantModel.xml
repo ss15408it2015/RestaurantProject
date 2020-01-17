@@ -1,0 +1,168 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>RestaurantModel</name>
+    </assembly>
+    <members>
+        <member name="T:RestaurantModel.CuisineTypeDto">
+            <summary>
+            CuisineType with id and cuisineType
+            </summary>
+        </member>
+        <member name="P:RestaurantModel.CuisineTypeDto.cuisineID">
+            <summary>
+            cuisineID of cuisineType
+            </summary>
+        </member>
+        <member name="P:RestaurantModel.CuisineTypeDto.cuisineType">
+            <summary>
+            name of cuisineType 
+            </summary>
+        </member>
+        <member name="T:RestaurantModel.RatingDto">
+            <summary>
+            Rating with id and rating.
+            </summary>
+        </member>
+        <member name="P:RestaurantModel.RatingDto.ID">
+            <summary>
+            id of restaurant
+            </summary>
+        </member>
+        <member name="P:RestaurantModel.RatingDto.rating">
+            <summary>
+            rating of restaurant
+            </summary>
+        </member>
+        <member name="T:RestaurantModel.Restaurant">
+            <summary>
+            An RestaurantDto with id, name, street, locality, city, state, country, postal, lat, lang, List of RatingDto, List of CuisineTypeDto
+            </summary>
+        </member>
+        <member name="P:RestaurantModel.Restaurant.ID">
+            <summary>
+            Id of Restaurant
+            </summary>
+        </member>
+        <member name="P:RestaurantModel.Restaurant.name">
+            <summary>
+            Name of Restaurant
+            </summary>
+        </member>
+        <member name="P:RestaurantModel.Restaurant.street">
+            <summary>
+            Street of restaurant
+            </summary>
+        </member>
+        <member name="P:RestaurantModel.Restaurant.locality">
+            <summary>
+            locality of restaurant
+            </summary>
+        </member>
+        <member name="P:RestaurantModel.Restaurant.city">
+            <summary>
+            city of restaurant
+            </summary>
+        </member>
+        <member name="P:RestaurantModel.Restaurant.state">
+            <summary>
+            state of restaurant
+            </summary>
+        </member>
+        <member name="P:RestaurantModel.Restaurant.country">
+            <summary>
+            country of restaurant
+            </summary>
+        </member>
+        <member name="P:RestaurantModel.Restaurant.postal">
+            <summary>
+            postal of restaurant
+            </summary>
+        </member>
+        <member name="P:RestaurantModel.Restaurant.lat">
+            <summary>
+            latitude of restaurant
+            </summary>
+        </member>
+        <member name="P:RestaurantModel.Restaurant.lng">
+            <summary>
+            longitude of restaurant
+            </summary>
+        </member>
+        <member name="P:RestaurantModel.Restaurant.rating">
+            <summary>
+            List of Ratings of restaurant
+            </summary>
+        </member>
+        <member name="P:RestaurantModel.Restaurant.restaurantCuisine">
+            <summary>
+            List of CuisineTypes of restaurant
+            </summary>
+        </member>
+        <member name="T:RestaurantModel.RestaurantDto">
+            <summary>
+            An Restaurant with id, name, street, locality, city, state, country, postal, lat, lang, List of RatingDto, List of CuisineTypeDto
+            </summary>
+        </member>
+        <member name="P:RestaurantModel.RestaurantDto.ID">
+            <summary>
+            Id of Restaurant
+            </summary>
+        </member>
+        <member name="P:RestaurantModel.RestaurantDto.name">
+            <summary>
+            Name of Restaurant
+            </summary>
+        </member>
+        <member name="P:RestaurantModel.RestaurantDto.street">
+            <summary>
+            Street of restaurant
+            </summary>
+        </member>
+        <member name="P:RestaurantModel.RestaurantDto.locality">
+            <summary>
+            locality of restaurant
+            </summary>
+        </member>
+        <member name="P:RestaurantModel.RestaurantDto.city">
+            <summary>
+            city of restaurant
+            </summary>
+        </member>
+        <member name="P:RestaurantModel.RestaurantDto.state">
+            <summary>
+            state of restaurant
+            </summary>
+        </member>
+        <member name="P:RestaurantModel.RestaurantDto.country">
+            <summary>
+            country of restaurant
+            </summary>
+        </member>
+        <member name="P:RestaurantModel.RestaurantDto.postal">
+            <summary>
+            postal of restaurant
+            </summary>
+        </member>
+        <member name="P:RestaurantModel.RestaurantDto.lat">
+            <summary>
+            latitude of restaurant
+            </summary>
+        </member>
+        <member name="P:RestaurantModel.RestaurantDto.lng">
+            <summary>
+            longitude of restaurant
+            </summary>
+        </member>
+        <member name="P:RestaurantModel.RestaurantDto.rating">
+            <summary>
+            List of Ratings of restaurant
+            </summary>
+        </member>
+        <member name="P:RestaurantModel.RestaurantDto.cuisineType">
+            <summary>
+            List of cuisine tpye of restaurant
+            </summary>
+        </member>
+    </members>
+</doc>

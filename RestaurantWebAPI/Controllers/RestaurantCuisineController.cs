@@ -26,7 +26,12 @@ namespace RestaurantWebAPI.Controllers
 
 
 
-        [HttpGet()]
+        /// <summary>
+        /// it returns list of all the cuisineTypes of particular restaurant and takes restaurantID as arguments.
+        /// </summary>
+        /// <param name="restaurantID"></param>
+        /// <returns></returns>
+        [HttpGet]
         public async Task<ActionResult<List<CuisineTypeDto>>> GetAllCuisineTypesOfRestaurant(int restaurantID)
         {
             if (! await _restaurantRepository.RestaurantExist(restaurantID))
@@ -37,7 +42,13 @@ namespace RestaurantWebAPI.Controllers
             return Ok(_mapper.Map<List<CuisineTypeDto>>(cuisineTypeEntity));
         }
 
-        [HttpPost()]
+        /// <summary>
+        /// it add single cuisineType in perticular restaurant and takes restaurantID and cuisineTypeDto as arguments.
+        /// </summary>
+        /// <param name="restaurantID"></param>
+        /// <param name="cuisineTypeDto"></param>
+        /// <returns></returns>
+        [HttpPost]
         public async Task<ActionResult<CuisineTypeDto>> AddCuisineTypeToRestaurant(int restaurantID, CuisineTypeDto cuisineTypeDto)
         {
             if (!await _restaurantRepository.RestaurantExist(restaurantID))
@@ -58,6 +69,12 @@ namespace RestaurantWebAPI.Controllers
             return Ok(cuisineTypeDto);
         }
 
+        /// <summary>
+        /// it removes cuisineType from particular restaurant and takes restaurantID and cuisineID as argument.
+        /// </summary>
+        /// <param name="restaurantID"></param>
+        /// <param name="cuisineID"></param>
+        /// <returns></returns>
         [HttpDelete("{cuisineID}")]
         public async Task<ActionResult> RemoveCuisineTypeFromRestaurant(int restaurantID, int cuisineID)
         {

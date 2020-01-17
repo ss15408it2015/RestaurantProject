@@ -24,10 +24,14 @@ namespace RestaurantWebAPI.Controllers
                 throw new ArgumentNullException(nameof(mapper));
         }
 
-        
 
 
 
+
+        /// <summary>
+        /// It provides all the cuisineTypes.
+        /// </summary>
+        /// <returns>return ActionResult of type List of CuisineTypeDto</returns>
         [HttpGet]
         public async Task<ActionResult<List<CuisineTypeDto>>> GetAllCuisineTypes()
         {
@@ -40,6 +44,11 @@ namespace RestaurantWebAPI.Controllers
         }
 
 
+        /// <summary>
+        /// It returns a single cuisineType.
+        /// </summary>
+        /// <param name="cuisineTypeID">id of the cuisineType you want to get</param>
+        /// <returns>return ActionResult of type CuisineTypeDto</returns>
         [HttpGet("{cuisineTypeID}", Name = "GetSingleCuisineType")]
         public async Task<ActionResult<CuisineTypeDto>> GetSingleCuisineType(int cuisineTypeID)
         {
@@ -51,6 +60,11 @@ namespace RestaurantWebAPI.Controllers
         }
 
 
+        /// <summary>
+        /// To Add a new CuisineType.
+        /// </summary>
+        /// <param name="cuisineTypeDto">CuisineTypeDto </param>
+        /// <returns>It shows the ActionResult of added CuisineType</returns>
         [HttpPost]
         public async Task<ActionResult> AddCuisineType(CuisineTypeDto cuisineTypeDto)
         {
@@ -65,6 +79,11 @@ namespace RestaurantWebAPI.Controllers
         }
 
 
+        /// <summary>
+        /// To Remove a CuisineType.
+        /// </summary>
+        /// <param name="cuisineTypeID">id of the cuisineType you want to delete</param>
+        /// <returns></returns>
         [HttpDelete("{cuisineTypeID}")]
         public async Task<ActionResult> RemoveSingleCuisineType(int cuisineTypeID)
         {
@@ -76,6 +95,11 @@ namespace RestaurantWebAPI.Controllers
         }
 
 
+        /// <summary>
+        /// To Update an existing CuisineType.
+        /// </summary>
+        /// <param name="cuisineTypeDto">CuisineTypeDto</param>
+        /// <returns>It shows the ActionResult of updated CuisineType</returns>
         [HttpPut("{cuisineTypeID}")]
         public async Task<ActionResult> UpdateCuisineType(int cuisineTypeID, CuisineTypeDto cuisineTypeDto)
         {

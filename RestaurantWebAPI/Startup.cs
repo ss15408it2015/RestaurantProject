@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Builder;
@@ -43,6 +45,23 @@ namespace RestaurantWebAPI
 
             services.AddControllersWithViews()
                  .AddNewtonsoftJson();
+
+            services.AddSwaggerGen(setupAction => 
+            {
+                setupAction.SwaggerDoc(
+                    "RestaurantOpenApiSpecification",
+                    new Microsoft.OpenApi.Models.OpenApiInfo()
+                    {
+                        Title = "Restaurant API",
+                        Version = "1"
+                    });
+
+                var xmlCommentsFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlCommentsFullPath = Path.Combine(AppContext.BaseDirectory, xmlCommentsFile);
+                
+                setupAction.IncludeXmlComments(xmlCommentsFullPath);
+                setupAction.IncludeXmlComments(String.Format(Configuration["RestaurantModelXmlCommentFile"]));
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -60,6 +79,18 @@ namespace RestaurantWebAPI
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+            });
+
+            app.UseHttpsRedirection();
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(setupAction => 
+            {
+                setupAction.SwaggerEndpoint(
+                    "/swagger/RestaurantOpenApiSpecification/swagger.json",
+                    "Restaurant API");
+                setupAction.RoutePrefix = "";
             });
         }
     }

@@ -1,0 +1,140 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>RestaurantWebAPI</name>
+    </assembly>
+    <members>
+        <member name="M:RestaurantWebAPI.Controllers.CuisineController.GetAllCuisineTypes">
+            <summary>
+            It provides all the cuisineTypes.
+            </summary>
+            <returns>return ActionResult of type List of CuisineTypeDto</returns>
+        </member>
+        <member name="M:RestaurantWebAPI.Controllers.CuisineController.GetSingleCuisineType(System.Int32)">
+            <summary>
+            It returns a single cuisineType.
+            </summary>
+            <param name="cuisineTypeID">id of the cuisineType you want to get</param>
+            <returns>return ActionResult of type CuisineTypeDto</returns>
+        </member>
+        <member name="M:RestaurantWebAPI.Controllers.CuisineController.AddCuisineType(RestaurantModel.CuisineTypeDto)">
+            <summary>
+            To Add a new CuisineType.
+            </summary>
+            <param name="cuisineTypeDto">CuisineTypeDto </param>
+            <returns>It shows the ActionResult of added CuisineType</returns>
+        </member>
+        <member name="M:RestaurantWebAPI.Controllers.CuisineController.RemoveSingleCuisineType(System.Int32)">
+            <summary>
+            To Remove a CuisineType.
+            </summary>
+            <param name="cuisineTypeID">id of the cuisineType you want to delete</param>
+            <returns></returns>
+        </member>
+        <member name="M:RestaurantWebAPI.Controllers.CuisineController.UpdateCuisineType(System.Int32,RestaurantModel.CuisineTypeDto)">
+            <summary>
+            To Update an existing CuisineType.
+            </summary>
+            <param name="cuisineTypeDto">CuisineTypeDto</param>
+            <returns>It shows the ActionResult of updated CuisineType</returns>
+        </member>
+        <member name="M:RestaurantWebAPI.Controllers.RatingController.GetSingleRating(System.Int32,System.Int32)">
+            <summary>
+            it returns single rating of restaurant By using restaurantID and ratingID.
+            </summary>
+            <param name="restaurantID"></param>
+            <param name="ratingID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RestaurantWebAPI.Controllers.RatingController.GetAllRatings(System.Int32)">
+            <summary>
+            it returns list of all ratings of perticular restaurant By using restaurantID.
+            </summary>
+            <param name="restaurantID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RestaurantWebAPI.Controllers.RatingController.AddSingleRating(System.Int32,RestaurantModel.RatingDto)">
+            <summary>
+            it add single rating in perticular restaurant By using restaurantID and ratingData in RatingDto form.
+            </summary>
+            <param name="restaurantID"></param>
+            <param name="ratingDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RestaurantWebAPI.Controllers.RatingController.UpdateRating(System.Int32,System.Int32,RestaurantModel.RatingDto)">
+            <summary>
+            it updates single rating of restaurant By using restaurantID, ratingID and ratingData in RatingDto form.
+            </summary>
+            <param name="restaurantID"></param>
+            <param name="ratingID"></param>
+            <param name="ratingDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RestaurantWebAPI.Controllers.RatingController.RemoveSingleRating(System.Int32,System.Int32)">
+            <summary>
+            it removes single rating of restaurant By using restaurantID and ratingID.
+            </summary>
+            <param name="restaurantID"></param>
+            <param name="ratingID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RestaurantWebAPI.Controllers.RestaurantController.GetAllRestaurants">
+            <summary>
+            it returns List of all restaurants details.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:RestaurantWebAPI.Controllers.RestaurantController.GetRestaurantByID(System.Int32)">
+            <summary>
+            it returns single restaurant details by using restaurantID as parameter.
+            </summary>
+            <param name="restaurantID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RestaurantWebAPI.Controllers.RestaurantController.AddRestaurant(RestaurantModel.RestaurantDto)">
+            <summary>
+            it add single restaurant details by using restaurant data in the form of RestaurantDto.
+            </summary>
+            <param name="restaurantDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RestaurantWebAPI.Controllers.RestaurantController.UpdateRestaurant(System.Int32,RestaurantModel.RestaurantDto)">
+            <summary>
+            it update perticular restaurant details by using restaurantID and restaurant data in the form of RestaurantDto.
+            </summary>
+            <param name="restaurantID"></param>
+            <param name="resDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RestaurantWebAPI.Controllers.RestaurantController.RemoveRestaurant(System.Int32)">
+            <summary>
+            it remove perticular restaurant details by using restaurantID.
+            </summary>
+            <param name="ID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RestaurantWebAPI.Controllers.RestaurantCuisineController.GetAllCuisineTypesOfRestaurant(System.Int32)">
+            <summary>
+            it returns list of all the cuisineTypes of particular restaurant and takes restaurantID as arguments.
+            </summary>
+            <param name="restaurantID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RestaurantWebAPI.Controllers.RestaurantCuisineController.AddCuisineTypeToRestaurant(System.Int32,RestaurantModel.CuisineTypeDto)">
+            <summary>
+            it add single cuisineType in perticular restaurant and takes restaurantID and cuisineTypeDto as arguments.
+            </summary>
+            <param name="restaurantID"></param>
+            <param name="cuisineTypeDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RestaurantWebAPI.Controllers.RestaurantCuisineController.RemoveCuisineTypeFromRestaurant(System.Int32,System.Int32)">
+            <summary>
+            it removes cuisineType from particular restaurant and takes restaurantID and cuisineID as argument.
+            </summary>
+            <param name="restaurantID"></param>
+            <param name="cuisineID"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
