@@ -75,7 +75,7 @@ namespace XUnitTestForRestaurantWebAPI.ControllerTesting
         {
             //Arrange
             _mockRepo.Setup(repo => repo.GetRestaurantByID(4))
-                .Returns(Task.FromResult(new Restaurant() { ID = 4,city = "Kota" }));
+                .Returns(Task.FromResult(new Restaurant() { ID = 4, city = "Kota", name = "amish", country = "India" }));
 
             //Act
             var result = await _controller.GetRestaurantByID(500);
