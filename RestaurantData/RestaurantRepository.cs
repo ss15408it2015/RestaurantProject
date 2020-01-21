@@ -39,9 +39,9 @@ namespace RestaurantData
             _context.Restaurants.Add(restaurant);
             return restaurant;
         }
-        public void RemoveRestaurant(int ID)
+        public async Task RemoveRestaurant(int ID)
         {
-            Restaurant restaurant = _context.Restaurants.Find(ID);
+            var restaurant = await _context.Restaurants.FindAsync(ID);
             if (restaurant != null)
                 _context.Restaurants.Remove(restaurant);
         }
@@ -84,10 +84,11 @@ namespace RestaurantData
         {
             return await _context.Ratings.Where(i => i.restaurantID == resID).ToListAsync();
         }
-        public Rating AddSingleRating(int restaurantID, Rating rating)
+        public async Task<Rating> AddSingleRating(int restaurantID, Rating rating)
         {
             rating.restaurant = null;
-            _context.Ratings.Add(rating);
+            rating.restaurantID = restaurantID;
+            await _context.Ratings.AddAsync(rating);
            
             return rating;
         }
@@ -97,8 +98,10 @@ namespace RestaurantData
             if (rating != null)
                 _context.Ratings.Remove(rating);
         }
-        public Rating UpdateRating(Rating newRating)
+        public Rating UpdateRating(int restaurantID, int ratingID, Rating newRating)
         {
+            newRating.restaurantID = restaurantID;
+            newRating.ID = ratingID;
             _context.Ratings.Update(newRating);
             
             return newRating;

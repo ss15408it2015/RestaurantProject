@@ -53,21 +53,21 @@
             <param name="restaurantID"></param>
             <returns></returns>
         </member>
-        <member name="M:RestaurantWebAPI.Controllers.RatingController.AddSingleRating(System.Int32,RestaurantModel.RatingDto)">
+        <member name="M:RestaurantWebAPI.Controllers.RatingController.AddSingleRating(System.Int32,RestaurantModel.RatingDtoForAdd)">
             <summary>
             it add single rating in perticular restaurant By using restaurantID and ratingData in RatingDto form.
             </summary>
             <param name="restaurantID"></param>
-            <param name="ratingDto"></param>
+            <param name="ratingDtoForAdd"></param>
             <returns></returns>
         </member>
-        <member name="M:RestaurantWebAPI.Controllers.RatingController.UpdateRating(System.Int32,System.Int32,RestaurantModel.RatingDto)">
+        <member name="M:RestaurantWebAPI.Controllers.RatingController.UpdateRating(System.Int32,System.Int32,RestaurantModel.RatingDtoForAdd)">
             <summary>
             it updates single rating of restaurant By using restaurantID, ratingID and ratingData in RatingDto form.
             </summary>
             <param name="restaurantID"></param>
             <param name="ratingID"></param>
-            <param name="ratingDto"></param>
+            <param name="ratingDtoForAdd"></param>
             <returns></returns>
         </member>
         <member name="M:RestaurantWebAPI.Controllers.RatingController.RemoveSingleRating(System.Int32,System.Int32)">
@@ -110,7 +110,7 @@
             <summary>
             it remove perticular restaurant details by using restaurantID.
             </summary>
-            <param name="ID"></param>
+            <param name="restaurantID"></param>
             <returns></returns>
         </member>
         <member name="M:RestaurantWebAPI.Controllers.RestaurantCuisineController.GetAllCuisineTypesOfRestaurant(System.Int32)">

@@ -11,6 +11,8 @@ namespace RestaurantModel.Profiles
         {
             CreateMap<Rating, RatingDto>();
             CreateMap<RatingDto, Rating>();
+
+            CreateMap<RatingDtoForAdd, Rating>();
         }
     }
 }

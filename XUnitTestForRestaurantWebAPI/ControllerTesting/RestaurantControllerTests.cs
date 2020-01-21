@@ -25,24 +25,65 @@ namespace XUnitTestForRestaurantWebAPI.ControllerTesting
             _controller = new RestaurantController(_mockRepo.Object, _mockMapper.Object);
         }
 
+
+
+
         [Fact]
-        public void GetAllRestaurants_ReturnsOk()
+        public async Task GetAllRestaurants_ReturnsOk()
         {
-            var result = _controller.GetAllRestaurants();
-            Assert.IsType<Task<ActionResult<List<RestaurantDto>>>>(result);
+            //act
+            var result = await _controller.GetAllRestaurants();
+
+            //assert
+            Assert.IsAssignableFrom<OkObjectResult>(result.Result);
+        }
+
+        //[Fact]
+        //public async Task GetAllRestaurants_CountExactNumberOfRestaurants()
+        //{
+        //    var x = new List<Restaurant>() { new Restaurant(), new Restaurant() };
+        //    //Arrange
+        //    _mockRepo.Setup(repo => repo.GetAllRestaurants())
+        //        .Returns(Task.FromResult(new List<Restaurant>()));
+
+        //    //Act
+        //    var result = await _controller.GetAllRestaurants();
+
+        //    //Assert
+        //    Assert.IsAssignableFrom<OkObjectResult>(result.Result);
+        //}
+
+
+
+        [Fact]
+        public async Task GetRestaurantByID_ReturnsOk()
+        {
+            var restaurantDto = new RestaurantDto() { ID = 4 };
+            //Arrange
+            var result = await _controller.AddRestaurant(restaurantDto);
+
+            //Act
+            var res = await _controller.GetRestaurantByID(4);
+            
+            //Assert
+            Assert.IsAssignableFrom<OkObjectResult>(res.Result);
+            //Assert.Equal(restaurant.ID, result.Value.ID);
         }
 
         [Fact]
-        public void GetAllRestaurants_CountExactNumberOfRestaurants()
+        public async Task GetRestaurantByID_ReturnsNotFound()
         {
-            //_mockRepo.Setup(repo => repo.GetAllRestaurants())
-            //    .Returns((Func<Task<ActionResult<List<RestaurantDto>>>>)(async () =>
-            //    {
-            //        await {new RestaurantDto(), new RestaurantDto()};
-            //    }))();
+            //Arrange
+            _mockRepo.Setup(repo => repo.GetRestaurantByID(4))
+                .Returns(Task.FromResult(new Restaurant() { ID = 4 }));
 
-            var result = _controller.GetAllRestaurants();
-            Assert.Equal(22,result.Result.Value.Count);
+            //Act
+            var result = await _controller.GetRestaurantByID(500);
+
+            //Assert
+            Assert.IsAssignableFrom<NotFoundResult>(result.Result);
         }
+
+       
     }
 }

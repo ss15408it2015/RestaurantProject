@@ -11,7 +11,7 @@ namespace RestaurantData
         Task<Restaurant> GetRestaurantByID(int ID);
         Task<IEnumerable<Restaurant>> GetAllRestaurants();
         Restaurant AddRestaurant(Restaurant restaurant);
-        void RemoveRestaurant(int ID);
+        Task RemoveRestaurant(int ID);
         Restaurant UpdateRestaurant(Restaurant newRestaurant);
 
 
@@ -22,9 +22,9 @@ namespace RestaurantData
 
         Task<Rating> GetSingleRating(int restaurantID, int ratingID);
         Task<IEnumerable<Rating>> GetAllRatings(int restaurantID);
-        Rating AddSingleRating(int restaurantID, Rating rating);
+        Task<Rating> AddSingleRating(int restaurantID, Rating rating);
         void RemoveSingleRating(int restaurantID, int ratingID);
-        Rating UpdateRating(Rating rating);
+        Rating UpdateRating(int restaurantID, int ratingID, Rating rating);
 
 
         Task<CuisineType> GetSingleCuisineType(int cuisineTypeID);

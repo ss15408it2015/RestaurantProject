@@ -37,10 +37,7 @@ namespace RestaurantWebAPI.Controllers
         {
             var restaurantFromRepo = await _restaurantRepository.GetAllRestaurants();
             
-            if (restaurantFromRepo != null)
-                return Ok(_mapper.Map<List<RestaurantDto>>(restaurantFromRepo));
-            else
-                return NotFound();
+            return Ok(_mapper.Map<List<RestaurantDto>>(restaurantFromRepo));
         }
 
         /// <summary>
@@ -103,12 +100,12 @@ namespace RestaurantWebAPI.Controllers
         /// <summary>
         /// it remove perticular restaurant details by using restaurantID.
         /// </summary>
-        /// <param name="ID"></param>
+        /// <param name="restaurantID"></param>
         /// <returns></returns>
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> RemoveRestaurant(int ID)
+        [HttpDelete("{restaurantID}")]
+        public async Task<IActionResult> RemoveRestaurant(int restaurantID)
         {
-            _restaurantRepository.RemoveRestaurant(ID);
+            await _restaurantRepository.RemoveRestaurant(restaurantID);
             if (await _restaurantRepository.SaveAsync() >= 1)
                 return Ok();
             else

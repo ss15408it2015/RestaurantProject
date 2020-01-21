@@ -26,10 +26,15 @@
         </member>
         <member name="P:RestaurantModel.RatingDto.ID">
             <summary>
-            id of restaurant
+            ratingID
             </summary>
         </member>
         <member name="P:RestaurantModel.RatingDto.rating">
+            <summary>
+            rating of restaurant
+            </summary>
+        </member>
+        <member name="P:RestaurantModel.RatingDtoForAdd.rating">
             <summary>
             rating of restaurant
             </summary>
